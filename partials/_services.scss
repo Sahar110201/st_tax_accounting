@@ -1,0 +1,38 @@
+#services {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+
+    article {
+      @include gradientBackground;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      display: flex;
+      gap: 1.5rem;
+      height: fit-content;
+      transition: transform 0.5s ease, filter 0.5s ease;
+
+      i {
+        font-size: 1.7rem;
+      }
+
+      div {
+        h4 {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+
+    /* Hover logic on parent */
+    &:hover article {
+      transform: scale(0.95);
+      filter: blur(4px);
+    }
+
+    &:hover article:hover {
+      transform: scale(1.1);
+      filter: blur(0);
+    }
+  }
+}
