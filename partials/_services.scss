@@ -23,7 +23,6 @@
         }
       }
     }
-
     /* Hover logic on parent */
     &:hover article {
       transform: scale(0.95);
@@ -45,27 +44,28 @@
     article {
       padding: 1.2rem;
       gap: 0.8rem;
-      transform: none !important;
-      filter: none !important;
-      transition: none;
+
+      &:hover {
+        transform: scale(1.05);
+        filter: blur(0);
+      }
+    }
+
+    &:hover article {
+      transform: scale(0.95);
+      filter: blur(3px);
     }
   }
 }
-/* Small devices (mobile) – FULLY disable hover */
+
+/* Small devices (mobile) - disable hover */
 @media screen and (max-width: 600px) {
   #services .container {
     grid-template-columns: 1fr;
 
     article {
-      transform: none !important;
-      filter: none !important;
+      /* Remove any hover effects */
       transition: none;
-    }
-
-    &:hover article,
-    &:hover article:hover {
-      transform: none;
-      filter: none;
     }
   }
 }
