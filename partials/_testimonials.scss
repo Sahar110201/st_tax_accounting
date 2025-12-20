@@ -1,0 +1,19 @@
+
+
+#testimonials {  // fixed typo
+  width: $container-lg; // make sure $container-lg is defined
+  margin: 0 auto;
+  padding: 2rem;
+
+  .container {
+    article {
+      @include gradientBackground; // make sure the mixin exists
+      padding: 1.5rem 2rem;
+      border-radius: 1rem;
+      cursor: default;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+
