@@ -26,4 +26,43 @@ window.addEventListener('resize', () => {
   }
 });
 
+//TESTIMONIALS SECTION (Swipper Slide JS)
+var swiper = new Swiper(".mySwiper", {
+  spaceBetween: 30,
+  loop: true,
+  autoplay: {
+    delay: 6000,
+    disableOnInteraction: false,
+  },
+  speed: 1200,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    0: { slidesPerView: 1 },
+    600: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 },
+  },
+  on: {
+    init: function () {
+      // Add hover listeners to each slide
+      this.slides.forEach(slide => {
+        slide.addEventListener("mouseenter", () => {
+          swiper.autoplay.stop();
+          slide.classList.add("hovered");
+        });
+        slide.addEventListener("mouseleave", () => {
+          swiper.autoplay.start();
+          slide.classList.remove("hovered");
+        });
+      });
+    }
+  }
+});
+
+
+
+
+
 

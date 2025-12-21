@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="css/style.min.css">
   <!-- BOXICONS CDN-->
    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 </head>
 <body>
 <nav>
@@ -102,49 +104,52 @@
 <!--============================ END OF SERVICES =====================-->
 
 <section id="testimonials">
-<h2>What Our Clients Say</h2>
-<P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ea at delectus. Nam aliquam ea sed quos. Ut, id et? Eos doloremque modi aliquid adipisci similique, beatae voluptatem reiciendis impedit.</P>
-<div class="container">
-  <article>
+    <h2 class="testimonialh2">What Our Clients Say</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ea at delectus...</p>
+
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <article class="swiper-slide">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure eaque nihil, temporibus vitae maxime quibusdam asperiores exercitationem similique accusamus, totam culpa ex illum consequuntur eius, id illo autem repellendus labore.</p>
+          <div class="client__details">
+            <h5>Mehak</h5>
+            <small>Client</small>
+          </div>
+        </article>
+
+  <article class="swiper-slide">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure eaque nihil, temporibus vitae maxime quibusdam asperiores exercitationem similique accusamus, totam culpa ex illum consequuntur eius, id illo autem repellendus labore.</p>
     <div class="client__details">
-      <h5>Mehak</h5>
+      <h5>Hania</h5>
       <small>Client</small>
     </div>
   </article>
 
-  <article>
+  <article class="swiper-slide">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure eaque nihil, temporibus vitae maxime quibusdam asperiores exercitationem similique accusamus, totam culpa ex illum consequuntur eius, id illo autem repellendus labore.</p>
     <div class="client__details">
-      <h5>Mehak</h5>
+      <h5>Humaira</h5>
       <small>Client</small>
     </div>
   </article>
 
-  <article>
+  <article class="swiper-slide">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure eaque nihil, temporibus vitae maxime quibusdam asperiores exercitationem similique accusamus, totam culpa ex illum consequuntur eius, id illo autem repellendus labore.</p>
     <div class="client__details">
-      <h5>Mehak</h5>
+      <h5>Sara</h5>
       <small>Client</small>
     </div>
   </article>
 
-  <article>
+  <article class="swiper-slide">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure eaque nihil, temporibus vitae maxime quibusdam asperiores exercitationem similique accusamus, totam culpa ex illum consequuntur eius, id illo autem repellendus labore.</p>
     <div class="client__details">
-      <h5>Mehak</h5>
-      <small>Client</small>
-    </div>
-  </article>
-
-  <article>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure eaque nihil, temporibus vitae maxime quibusdam asperiores exercitationem similique accusamus, totam culpa ex illum consequuntur eius, id illo autem repellendus labore.</p>
-    <div class="client__details">
-      <h5>Mehak</h5>
+      <h5>Sahar</h5>
       <small>Client</small>
     </div>
   </article>
 </div>
+<div class="swiper-pagination"></div>
 </section>
 
 <footer style="text-align:center; font-size:12px; color:#555; margin-top:40px;">
@@ -153,6 +158,8 @@
     Tax PNGs by Vecteezy
   </a>
 </footer>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 <script src="main.js" defer></script>
 </body>
 
