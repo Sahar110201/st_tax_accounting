@@ -34,7 +34,9 @@
     padding: 1rem; /* Horizontal padding for left/right hover expansion */
     width: 100%;
 }
-
+.swiper-wrapper {
+    margin-bottom: -1.5rem;
+}
 #testimonials .swiper-slide {
     /* Compiled @include gradientBackground */
     background: linear-gradient(135deg, #314486, #698bcd);
@@ -80,7 +82,7 @@
     width: 100% !important;
     z-index: 100;
 }
-.swiper-pagination-bullet { background: #7ca4f2; }
+.swiper-pagination-bullet { background: $primary-color; }
 
 @media screen and (max-width: 1024px) {
       #testimonials .swiper-slide {
@@ -98,7 +100,9 @@
         overflow: hidden;
         padding: 0;
     }
-    
+    .swiper-pagination {
+        display: none;
+    }
     /* 2. Swiper cleanup */
     #testimonials .swiper {
         padding: 6;
