@@ -46,20 +46,26 @@ var swiper = new Swiper(".mySwiper", {
   },
   on: {
     init: function () {
-      // Add hover listeners to each slide
       this.slides.forEach(slide => {
         slide.addEventListener("mouseenter", () => {
-          swiper.autoplay.stop();
-          slide.classList.add("hovered");
+          // Only apply hover effect on desktop (window width > 1024)
+          if (window.innerWidth > 1024) {
+            swiper.autoplay.stop();
+            slide.classList.add("hovered");
+          }
         });
         slide.addEventListener("mouseleave", () => {
-          swiper.autoplay.start();
-          slide.classList.remove("hovered");
+          // Only apply hover effect on desktop (window width > 1024)
+          if (window.innerWidth > 1024) {
+            swiper.autoplay.start();
+            slide.classList.remove("hovered");
+          }
         });
       });
     }
   }
 });
+
 
 
 

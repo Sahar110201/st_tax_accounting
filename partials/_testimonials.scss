@@ -1,83 +1,114 @@
 #testimonials {
-  padding-top: 4rem;    // space from previous section
-  padding-bottom: 6rem;
-
-  .testimonial-container {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 1rem;
-
-    h2.testimonialh2 {
-      margin-bottom: 2rem;
-      font-size: 2rem;
-    }
-
-    p {
-      margin-bottom: 3rem;
-      max-width: 700px;
-    }
-
-    .swiper {
-      width: 100%;
-      max-width: $container-lg;
-      margin: 0 auto;
-      padding-bottom: 2rem;
-
-      .swiper-wrapper {
-        display: flex;
-        gap: 2rem;
-
-        article {
-          @include gradientBackground;
-          padding: 1.5rem 2rem;
-          border-radius: 1rem;
-          cursor: default;
-          font-size: 0.9rem;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-          .client__details {
-            h5 {
-              margin-bottom: 0.25rem;
-              font-size: 1rem;
-            }
-
-            small {
-              display: block;
-              font-size: 0.85rem;
-              color: #666;
-            }
-          }
-
-          &.hovered {
-            transform: scale(1.05);
-            z-index: 10;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-          }
-        }
-      }
-
-      .swiper-pagination {
-        margin-top: 2rem;
-      }
-    }
-  }
+    padding-top: 0rem;
+    padding-bottom: 6rem;
+  
 }
 
-/* Force spacing for #services bottom */
-#services {
-  padding-bottom: 8rem !important;
+#testimonials .container {
+    position: relative; /* For positioning pagination */
+}
+
+#testimonials h2.testimonialh2 {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#testimonials .container > p {
+    margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: rgba(12, 3, 27, 0.7); /* $dark-color */
+}
+
+/* Wrapper to handle overflow clipping and provide hover space */
+.swiper-outer-wrapper {
+    overflow: hidden;
+    padding: 1rem 0; 
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#testimonials .swiper {
+    overflow: visible; /* Allows hover effect to be seen */
+    padding: 1rem; /* Horizontal padding for left/right hover expansion */
+    width: 100%;
+}
+
+#testimonials .swiper-slide {
+    /* Compiled @include gradientBackground */
+    background: linear-gradient(135deg, #314486, #698bcd);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: fit-content;
+}
+
+#testimonials .swiper-slide p {
+    color: #ffffff; /* $light-color */
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    gap: 1rem;
+    height: fit-content;
+}
+
+#testimonials .swiper-slide .client__details h5 {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+#testimonials .swiper-slide .client__details small {
+    display: block;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7); /* $light-color */
+}
+
+#testimonials .swiper-slide.hovered {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Pagination Styles */
+.swiper-pagination {
+  position: relative;
+  bottom: auto !important;
+  margin-top: 2rem;
+    width: 100% !important;
+    z-index: 100;
+}
+.swiper-pagination-bullet { background: #7ca4f2; }
+
+@media screen and (max-width: 1024px) {
+      #testimonials .swiper-slide {
+        padding: 1.2rem;
+        transform: none !important;
+        box-shadow: none !important;
+        z-index: auto !important;
+        cursor:default !important;
+}
 }
 
 /*======================= MEDIA QUERIES (SMALL DEVICES) =================*/
 @media screen and (max-width: 600px) {
-  .swiper-wrapper {
-    gap: 1rem;
-
-    .swiper-slide.hovered {
-      transform: none !important;
-      box-shadow: none !important;
-      z-index: auto !important;
+  .swiper-outer-wrapper {
+        overflow: hidden;
+        padding: 0;
     }
-  }
+    
+    /* 2. Swiper cleanup */
+    #testimonials .swiper {
+        padding: 6;
+    }
+    
+    /* 3. Ensure hover is completely disabled (redundant but safe) */
+    #testimonials .swiper-slide {
+        transform: none !important;
+        box-shadow: none !important;
+        z-index: auto !important;
+        cursor: default !important;
+    }
 }
