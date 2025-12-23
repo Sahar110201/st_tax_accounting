@@ -63,20 +63,46 @@ var swiper = new Swiper(".mySwiper", {
   }
 });
 
+//Timer JS
+// Canada Tax Deadline: April 30, 2026, 23:59:59 Eastern Time
+const deadline = new Date(2026, 3, 30, 23, 59, 59).getTime(); // Month 3 = April
 
+const elements = {
+  days: document.getElementById("days"),
+  hours: document.getElementById("hours"),
+  minutes: document.getElementById("minutes"),
+  seconds: document.getElementById("seconds")
+};
 
+let prev = {};
 
+function updateTimer() {
+  const now = new Date().getTime();
+  let diff = deadline - now;
 
+  if (diff < 0) diff = 0; // prevent negative countdown after deadline
 
+  const time = {
+    days: Math.ceil(diff / (1000 * 60 * 60 * 24)), // round up to include today
+    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((diff / (1000 * 60)) % 60),
+    seconds: Math.floor((diff / 1000) % 60)
+  };
 
+  Object.keys(time).forEach(unit => {
+    if (prev[unit] !== time[unit]) {
+      elements[unit].parentElement.classList.add("flip");
+      elements[unit].textContent = String(time[unit]).padStart(2, "0");
+      setTimeout(() => {
+        elements[unit].parentElement.classList.remove("flip");
+      }, 600);
+      prev[unit] = time[unit];
+    }
+  });
+}
 
+// initial call
+updateTimer();
 
-
-
-
-
-
-
-
-
-
+// update every second
+setInterval(updateTimer, 1000);
