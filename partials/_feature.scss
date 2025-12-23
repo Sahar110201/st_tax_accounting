@@ -1,0 +1,36 @@
+.features-section {
+ 
+}
+
+.features-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px; /* $container-lg equivalent */
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: linear-gradient(135deg, #314486, #698bcd); /* primary gradient */
+  color: #ffffff;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
