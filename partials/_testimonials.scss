@@ -1,103 +1,52 @@
-#testimonials {
-    padding-top: 0rem;
-    padding-bottom: 6rem;
-  
-}
+.swiper {
+    width: $container-lg;
+    
 
-#testimonials .container {
-    position: relative; /* For positioning pagination */
-}
-
-#testimonials h2.testimonialh2 {
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-#testimonials .container > p {
-    margin-bottom: 3rem;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    color: rgba(12, 3, 27, 0.7); /* $dark-color */
-}
-
-/* Wrapper to handle overflow clipping and provide hover space */
-.swiper-outer-wrapper {
-    overflow: hidden;
-    padding: 1rem 0; 
-    width: 100%;
-    box-sizing: border-box;
-}
-
-#testimonials .swiper {
-    overflow: visible; /* Allows hover effect to be seen */
-    padding: 1rem; /* Horizontal padding for left/right hover expansion */
-    width: 100%;
-}
 .swiper-wrapper {
-    margin-bottom: -1.5rem;
-}
-#testimonials .swiper-slide {
-    /* Compiled @include gradientBackground */
-    background: linear-gradient(135deg, #314486, #698bcd);
-    padding: 1.5rem;
-    border-radius: 1rem;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: fit-content;
+    /*brings pagination down*/
+    margin-bottom: 4rem;
+    .swiper-slide {
+            @include gradientBackground;
+            padding: 1.5rem 2rem;
+            border-radius: 1rem;
+            cursor: default;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform-origin:center center ;
+        
+            p {
+                margin-bottom: 1.5rem;
+            }
+            .client {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+        .swiper-slide.hovered {
+           transform: translateY(-10px);
+           z-index: 20;
+           box-shadow: $dark-color; 
+        }
+
+        .swiper-outer-wrapper {
+  overflow: visible;
+  width: $container-lg;
+  margin: 0 auto;
 }
 
-#testimonials .swiper-slide p {
-    color: #ffffff; /* $light-color */
-    margin-bottom: 1rem;
-    border-radius: 1rem;
-    display: flex;
-    gap: 1rem;
-    height: fit-content;
-}
-
-#testimonials .swiper-slide .client__details h5 {
-    margin-bottom: 0.25rem;
-    font-size: 1rem;
-    color: #ffffff;
-}
-
-#testimonials .swiper-slide .client__details small {
-    display: block;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.7); /* $light-color */
-}
-
-#testimonials .swiper-slide.hovered {
-    transform: scale(1.05);
-    z-index: 10;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Pagination Styles */
-.swiper-pagination {
-  position: relative;
-  bottom: auto !important;
-  margin-top: 2rem;
-    width: 100% !important;
-    z-index: 100;
-}
-.swiper-pagination-bullet { background: $primary-color; }
-
-@media screen and (max-width: 1024px) {
-      #testimonials .swiper-slide {
-        padding: 1.2rem;
-        transform: none !important;
-        box-shadow: none !important;
-        z-index: auto !important;
-        cursor:default !important;
-}
+    }
+    .swiper-pagination-bullet {
+        background: $primary-color;
+    }
 }
 
 /*======================= MEDIA QUERIES (SMALL DEVICES) =================*/
 @media screen and (max-width: 600px) {
-  .swiper-outer-wrapper {
+    #testimonials {
         overflow: hidden;
+    }
+  .swiper-outer-wrapper {
         padding: 0;
     }
     .swiper-pagination {
@@ -105,11 +54,17 @@
     }
     /* 2. Swiper cleanup */
     #testimonials .swiper {
-        padding: 6;
+        padding: 0;
+        overflow: hidden;
+    }
+    #testimonials .swiper-wrapper {
+        display: flex;
+        align-items: stretch;
     }
     
-    /* 3. Ensure hover is completely disabled (redundant but safe) */
     #testimonials .swiper-slide {
+        margin: 0 auto;
+        width: 100% !important;
         transform: none !important;
         box-shadow: none !important;
         z-index: auto !important;

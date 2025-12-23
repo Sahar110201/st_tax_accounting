@@ -8,6 +8,7 @@ body {
     color: $dark-color;
     background: rgba($primary-color-variant, 0.1);
     user-select: none;
+    overflow-x: hidden;
 }
 
 .container {

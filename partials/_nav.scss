@@ -144,215 +144,108 @@ nav {
             }
         }
     }
-
-/* ==========================
-   MOBILE NAV (≤600px)
-   ========================== */
-/* MOBILE MENU (≤600px) */
-
-  nav.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5rem;
-    z-index: 2000;
-    @include gradientBackground;
-    display: flex;
-    align-items: center;
-    padding: 0 1rem;
-    box-shadow: 0 1rem 1rem rgba($black-color, 0.1);
-
-    .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-
-      /* Logo always visible on left */
-      .nav__logo {
-        display: flex;
-        align-items: center;
-        z-index: 2100;
-
-        h3 {
-          color: $white-color;
-          font-size: 1.5rem;
-          margin: 0;
-        }
-      }
-
-      /* Hamburger buttons */
-      #open__nav-btn,
-      #close__nav-btn {
-        font-size: 2rem;
-        color: $white-color;
-        background: none;
-        border: none;
-        cursor: pointer;
-        transition: transform 0.4s ease;
-        z-index: 2100;
-      }
-
-      #open__nav-btn.rotate { transform: rotate(90deg); }
-      #close__nav-btn.rotate { transform: rotate(-90deg); }
-
-      /* Mobile menu (full-screen) */
-      #nav__items {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: $primary-color-variant;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1.5rem;
-        transform: translateX(-100%);
-        transition: transform 0.4s ease;
-        z-index: 2000;
-
-        &.open { transform: translateX(0); }
-
-        li {
-          width: 100%;
-          text-align: center;
-
-          a {
-            display: block;
-            width: 100%;
-            padding: 1.2rem 2rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 400;
-            color: $white-color;
-            background: linear-gradient($primary-color-variant, darken($primary-color-variant, 12%));
-
-            &.btn {
-              background: $secondary-color;
-              color: $white-color;
-            }
-          }
-        }
-      }
-
-      /* Close button top-right */
-      #close__nav-btn {
-        position: absolute;
-        top: 1.5rem;
-        right: 1rem;
-      }
-    }
-  }
-/* MOBILE MENU (≤600px) */
 @media screen and (max-width: 600px) {
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 5rem;
-    z-index: 1000;
-    @include gradientBackground; /* your original gradient */
-    box-shadow: 0 1rem 1rem rgba($black-color, 0.1);
-
-    .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      padding: 0 1rem;
-
-      /* Logo on the left */
-      .nav__logo {
-        position: relative;
-        z-index: 2100; /* above menu and buttons */
-        h3 {
-          color: $white-color;
-          font-size: 1.2rem;
-          font-weight: 600;
-          letter-spacing: 0.5px;
-          margin: 0;
-        }
-      }
-
-      /* Open / Close buttons on the right */
-      #open__nav-btn,
-      #close__nav-btn {
-        display: inline-block;
-        font-size: 2rem;
-        color: $white-color;
-        background: none;
-        border: none;
-        cursor: pointer;
-        transition: transform 0.4s ease;
-        z-index: 1100;
-      }
-
-      #open__nav-btn.rotate { transform: rotate(90deg); }
-      #close__nav-btn.rotate { transform: rotate(-90deg); }
-
-      /* Full-screen mobile menu */
-      #nav__items {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: $primary-color-variant;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1.5rem;
-        transform: translateX(-100%);
-        transition: transform 0.4s ease;
-        z-index: 1000;
-
-        &.open { transform: translateX(0); }
-
-        li {
-          width: 100%;
-          text-align: center;
-        
-
-          a {
-            display: block;
-            width: 100%;
-            padding: 1.2rem 2rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 400;
-            color: $white-color;
-            background: linear-gradient($primary-color-variant, darken($primary-color-variant, 20%));
-
-            &.btn {
-                background: $secondary-color;
-                color: $white-color;
-                font-weight: 600;
-                 border-radius: 0.5rem;
-                padding: 1rem 2rem;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-                transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-          }
-        }
-      }
-
-      /* Close button top-right */
-      #close__nav-btn {
-        position: absolute;
-        top: 1.5rem;
-        right: 1rem;
-      }
-
-      /* Hide open button when menu is open */
-      #nav__items.open + #open__nav-btn {
-        display: none;
-      }
-    }
+  #open__nav-btn {
+    display: inline-block;
   }
-}
-}
+
+  #close__nav-btn {
+    display: none;
+  }
+
+  /* when menu is open */
+  #nav__items.open ~ #open__nav-btn {
+    display: none;
+  }
+
+  #nav__items.open ~ #close__nav-btn {
+    display: inline-block;
+  }
+
+    nav {
+        .container {
+            button {
+                display: inline-block;
+                background: transparent;
+                color: $white-color;
+                font-size: 2rem;
+                cursor: pointer;
+
+                &#close__nav-btn {
+                    display: none;
+                }
+            }
+
+            ul {
+                position: fixed;
+                right: 5%;
+                top: 5rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                display: none;
+                perspective: 600px;
+
+                &.open {
+                    display: flex;
+                }
+
+                li {
+                    width: 100%;
+                    opacity: 0;
+                    animation: flipNavItem 420ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+                    transform-origin: top;
+                    transition: transform 200ms ease-out, background 200ms ease;
+                    
+                    &:hover { transform: rotateX(0) translateX(6px);
+            
+                    }
+
+                    &:nth-child(2) {
+                        animation-delay: calc(var(--i) * 120ms);
+                    }
+                    &:nth-child(3) {
+                        animation-delay: calc(var(--i) * 120ms);
+                    }
+                    &:nth-child(4) {
+                        animation-delay: calc(var(--i) * 120ms);
+                    }
+                    &:nth-child(5) {
+                        animation-delay: calc(var(--i) * 120ms);
+                    }
+                    &:nth-child(6) {
+                        animation-delay: calc(var(--i) * 120ms);
+                    }
+                    &:nth-child(7) {
+                        animation-delay: calc(var(--i) * 120ms);
+                    }
+                }
+
+                    @keyframes flipNavItem {
+                        0% {
+                            transform: rotateX(90deg) translateY(-10px);
+                            filter: blur(6px);
+                        }
+                        100% {
+                            transform: rotateX(0deg) translateY(0);
+                            opacity: 1;
+                            filter: blur(0);
+                        }
+                    }
+
+                    a {
+                        color: $white-color;
+                        height: 100%;
+                        display: block;
+                        padding: 1.5rem 2rem;
+                        border-radius: 0;
+                        background: linear-gradient($primary-color-variant, darken($primary-color-variant, 12%));
+
+                        &.btn {
+                            background: $secondary-color;
+                        }
+                    }
+                }
+            }
+        }
+    }

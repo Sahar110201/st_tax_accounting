@@ -28,6 +28,7 @@ window.addEventListener('resize', () => {
 
 //TESTIMONIALS SECTION (Swipper Slide JS)
 var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 1,
   spaceBetween: 30,
   loop: true,
   autoplay: {
@@ -35,36 +36,43 @@ var swiper = new Swiper(".mySwiper", {
     disableOnInteraction: false,
   },
   speed: 1200,
+  breakpoints: {
+    600: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 }
+  },
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
   },
-  breakpoints: {
-    0: { slidesPerView: 1 },
-    600: { slidesPerView: 2 },
-    1024: { slidesPerView: 3 },
-  },
   on: {
     init: function () {
-      this.slides.forEach(slide => {
-        slide.addEventListener("mouseenter", () => {
-          // Only apply hover effect on desktop (window width > 1024)
-          if (window.innerWidth > 1024) {
-            swiper.autoplay.stop();
-            slide.classList.add("hovered");
-          }
+      const swiperInstance = this;
+      const container = swiperInstance.el;
+
+      // Only desktop
+      if (window.innerWidth > 1024) {
+        container.addEventListener("mouseenter", () => swiperInstance.autoplay.stop());
+        container.addEventListener("mouseleave", () => swiperInstance.autoplay.start());
+
+        swiperInstance.slides.forEach(slide => {
+          slide.addEventListener("mouseenter", () => slide.classList.add("hovered"));
+          slide.addEventListener("mouseleave", () => slide.classList.remove("hovered"));
         });
-        slide.addEventListener("mouseleave", () => {
-          // Only apply hover effect on desktop (window width > 1024)
-          if (window.innerWidth > 1024) {
-            swiper.autoplay.start();
-            slide.classList.remove("hovered");
-          }
-        });
-      });
+      }
     }
   }
 });
+
+
+
+
+
+
+
+
+
+
+
 
 
 
