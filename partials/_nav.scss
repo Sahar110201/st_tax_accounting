@@ -198,10 +198,11 @@ nav {
     .container {
       ul {
         position: fixed;
-        top: 5rem;              // below navbar
-        left: 0;                 // flush left
-        width: 100%;            // full width
-        height: 50vh;            // fixed half-page height
+        top: 5rem;              
+        left: 0;                 
+        width: 100%;  
+        max-width: 100%;          
+        height: 50vh;            
         flex-direction: column;
         align-items: stretch;
         display: none;
@@ -237,7 +238,7 @@ nav {
           a {
             display: block;
             width: 100%;
-            padding: 0.8rem 0;       // spacing for readability
+            padding: 0.8rem 0;       
             color: $white-color;
             text-align: center;    // center text
             border-radius: 0;
