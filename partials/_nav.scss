@@ -144,6 +144,52 @@ nav {
             }
         }
     }
+  header {
+    height: auto;
+    min-height: 500px;
+    padding: 3rem 1rem 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      align-items: center;
+
+      .header__content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        text-align: center;
+
+        h1 {
+          font-size: 2.2rem;
+          margin: 0;
+        }
+
+        p {
+          margin-bottom: 0.5rem;
+        }
+
+        a.btn {
+          margin-top: 0.3rem;
+          padding: 0.8rem 2rem;
+        }
+      }
+
+      .header__img img {
+        max-width: 340px;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto;
+      }
+    }
+  }
+
+
 @media screen and (max-width: 600px) {
   nav {
     .container {
@@ -154,7 +200,6 @@ nav {
         width: 100vw;            // full width
         height: 50vh;            // fixed half-page height
         flex-direction: column;
-        justify-content: center; // vertically center items
         align-items: stretch;
         display: none;
         padding: 0.5rem 0;              
@@ -188,10 +233,11 @@ nav {
           a {
             display: block;
             width: 100%;
-            padding: 1rem 0;       // spacing for readability
+            padding: 0.8rem 0;       // spacing for readability
             color: $white-color;
             text-align: center;    // center text
             border-radius: 0;
+            transition: background 0.3s ease;
 
             &.btn {
               background: $secondary-color;
@@ -214,6 +260,51 @@ nav {
     }
   }
 }
+header {
+    height: auto;
+    min-height: 500px;
+    padding: 2rem 1rem 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+
+      .header__content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        text-align: center;
+
+        h1 {
+          font-size: 2rem;
+          margin: 0;
+        }
+
+        p {
+          margin: 0;
+        }
+
+        a.btn {
+          padding: 0.7rem 1.8rem;
+        }
+      }
+
+      .header__img img {
+        max-width: 320px;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto;
+      }
+    }
+  }
+
+
 
 
 
