@@ -53,11 +53,14 @@ header {
                 line-height: 1.1;
                 letter-spacing: -3px;
                 font-weight: 300;
+                text-align: left;
+                
             }
             p {
                 margin: 1rem 0 2rem;
                 color: $light-color;
                 font-size: 1.1rem;
+                text-align: left;
             }
             a.btn {
                 padding: 0.8rem 2rem;
@@ -106,11 +109,13 @@ header {
         h1 {
           font-size: 2.2rem;
           margin: 0;
+          text-align: center;
         }
 
         p {
           margin: 0.5rem 0 1.5rem;
           font-size: 1rem;
+          text-align: center;
         }
 
         a.btn {
