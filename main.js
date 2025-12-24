@@ -106,3 +106,22 @@ updateTimer();
 
 // update every second
 setInterval(updateTimer, 1000);
+
+//feature js
+const features = document.querySelectorAll('.feature-item');
+
+function revealFeatures() {
+  const triggerPoint = window.innerHeight * 0.85;
+
+  features.forEach(feature => {
+    const top = feature.getBoundingClientRect().top;
+
+    if (top < triggerPoint) {
+      feature.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealFeatures);
+window.addEventListener('load', revealFeatures);
+

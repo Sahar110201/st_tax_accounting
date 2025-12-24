@@ -1,36 +1,126 @@
-.features-section {
- 
+/* ===== FEATURES SECTION ===== */
+#features {
+  position: relative;
+  padding: 4rem 2rem;
+  background: #253566; /* deep, rich background */
+  text-align: center;
+  overflow: hidden;
 }
 
-.features-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2.5rem;
-  max-width: 1200px; /* $container-lg equivalent */
+#features::before,
+#features::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Top-left circle */
+#features::before {
+  top: -50px;
+  left: -50px;
+  width: 400px;
+  height: 400px;
+  background: rgba(105, 139, 205, 0.15);
+}
+
+/* Bottom-right circle */
+#features::after {
+  bottom: -80px;
+  right: -60px;
+  width: 500px;
+  height: 500px;
+  background: rgba(105, 139, 205, 0.1);
+}
+
+
+/* Heading */
+.features-title {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+/* Container */
+.features-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
-.feature-card {
-  background: linear-gradient(135deg, #314486, #698bcd); /* primary gradient */
+/* Feature card */
+.feature-item {
+  max-width: 300px;
+  background: linear-gradient(135deg, #2b3a7a, #5a7fc2);
   color: #ffffff;
   padding: 2rem 1.5rem;
   border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
-.feature-icon {
+/* Card hover effect on desktop only */
+@media screen and (min-width: 1025px) {
+  .feature-item:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+    background: linear-gradient(135deg, #314486, #698bcd);
+  }
+}
+
+/* Feature number */
+.feature-number {
   font-size: 2.5rem;
+  font-weight: 700;
+  color: #698bcd; /* complements gradient */
   margin-bottom: 1rem;
 }
 
-.feature-card h3 {
+/* Headings and paragraph */
+.feature-item h3 {
+  margin: 1rem 0 0.5rem;
   font-size: 1.25rem;
-  margin-bottom: 0.75rem;
-  font-weight: 700;
 }
 
-.feature-card p {
+.feature-item p {
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+  .feature-item {
+    transform: none !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+    background: linear-gradient(135deg, #2b3a7a, #5a7fc2) !important;
+  }
+
+  .features-container {
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .features-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .feature-item {
+    max-width: 100%;
+    transform: none !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12) !important;
+    background: linear-gradient(135deg, #2b3a7a, #5a7fc2) !important;
+  }
 }
