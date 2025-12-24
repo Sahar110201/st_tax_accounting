@@ -1,16 +1,46 @@
+//NAV MEDIUM AND SMALL SCREEN JS
 const navItems = document.querySelector('#nav__items');
+const navListItems = document.querySelectorAll('#nav__items li'); // get all li
 const openNavBtn = document.querySelector('#open__nav-btn');
 const closeNavBtn = document.querySelector('#close__nav-btn');
+
+function animateMobileNav() {
+  navListItems.forEach((item, index) => {
+    // Reset before animation
+    item.style.opacity = 0;
+    item.style.transform = 'rotateX(90deg)';
+    item.style.transition = 'none';
+
+    // Staggered animation
+    setTimeout(() => {
+      item.style.transition = 'transform 0.42s cubic-bezier(0.4,0,0.2,1), opacity 0.42s';
+      item.style.transform = 'rotateX(0deg)';
+      item.style.opacity = 1;
+    }, index * 120); // 120ms delay between items
+  });
+}
 
 openNavBtn.addEventListener('click', () => {
   navItems.classList.add('open');
   openNavBtn.classList.add('rotate');
+
+  // Animate mobile nav items
+  if (window.innerWidth <= 600) {
+    animateMobileNav();
+  }
 });
 
 closeNavBtn.addEventListener('click', () => {
   navItems.classList.remove('open');
   openNavBtn.classList.remove('rotate');
   closeNavBtn.classList.add('rotate');
+
+  // Reset mobile nav items
+  navListItems.forEach(item => {
+    item.style.opacity = 0;
+    item.style.transform = 'rotateX(90deg)';
+    item.style.transition = 'none';
+  });
 
   setTimeout(() => {
     closeNavBtn.classList.remove('rotate');
