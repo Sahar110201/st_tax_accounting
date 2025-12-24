@@ -138,50 +138,35 @@ header {
 
 /*======================= MEDIA QUERIES (SMALL DEVICES ≤600px) =================*/
 @media screen and (max-width: 600px) {
-    header {
-        height: auto;
-        min-height: auto;
-        padding-top: 3rem;
-        overflow: visible;
+  header .container {
+    width: 100%;          // full width of viewport
+    max-width: 100%;      // prevent exceeding viewport
+    padding: 0 1rem;      // optional horizontal padding
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            padding: 0 1rem; // optional horizontal padding
-            box-sizing: border-box;
+  header .header__content h1 {
+    font-size: 2.4rem;    // larger heading
+  }
 
-            .header__content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 0.7rem;
+  header .header__content p {
+    font-size: 1.1rem;    // larger paragraph
+  }
 
-                h1 {
-                  font-size: 2.2rem;
-                }
+  header .header__content a.btn {
+    padding: 0.8rem 2rem; // larger button
+    font-size: 1rem;
+  }
 
-                p {
-                  font-size: 1.1rem;
-                }
-                a.btn {
-                padding: 0.8rem 1rem; // larger clickable area
-                font-size: 1rem;
-               }
-
-            .header__img img {
-                width: 100%;
-                max-width: 320px; // same as desktop scaling
-                height: auto;
-                margin: 0 auto;
-                display: block;
-            }
-        }
-    }
+  header .header__img img {
+    max-width: 320px;     // image scales nicely
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
 }
-}
-
 /* =========================
    PARTICLE ANIMATION
 ========================= */
