@@ -145,9 +145,12 @@ header {
         overflow: visible;
 
         .container {
-            grid-template-columns: 1fr;
-            text-align: center;
-            gap: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 0 1rem; // optional horizontal padding
+            box-sizing: border-box;
 
             .header__content {
                 display: flex;
@@ -156,25 +159,27 @@ header {
                 gap: 0.7rem;
 
                 h1 {
-                  font-size: 2rem;
+                  font-size: 2.2rem;
                 }
 
                 p {
-                  font-size: 1rem;
+                  font-size: 1.1rem;
                 }
-            }
+                a.btn {
+                padding: 0.8rem 1rem; // larger clickable area
+                font-size: 1rem;
+               }
 
             .header__img img {
                 width: 100%;
-                max-width: 90%;
+                max-width: 320px; // same as desktop scaling
                 height: auto;
-                max-height: none;
-                object-fit: contain;
-                display: block;
                 margin: 0 auto;
+                display: block;
             }
         }
     }
+}
 }
 
 /* =========================

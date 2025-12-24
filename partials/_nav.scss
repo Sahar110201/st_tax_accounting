@@ -191,13 +191,16 @@ nav {
 
 
 @media screen and (max-width: 600px) {
+  body{
+    overflow-x: hidden;
+  }
   nav {
     .container {
       ul {
         position: fixed;
         top: 5rem;              // below navbar
         left: 0;                 // flush left
-        width: 100vw;            // full width
+        width: 100%;            // full width
         height: 50vh;            // fixed half-page height
         flex-direction: column;
         align-items: stretch;
@@ -205,6 +208,7 @@ nav {
         padding: 0.5rem 0;              
         margin: 0;
         z-index: 999;
+        box-sizing: border-box;
 
         &.open {
           display: flex;
