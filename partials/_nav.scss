@@ -1,41 +1,86 @@
 nav {
-    width: 100vw;
-    height: 5rem;
-    position: fixed;
-    z-index: 10;
-    display: grid;
-    place-items: center;
-    @include gradientBackground; /* created a gradient for this in mixins.scss */
-    box-shadow: 0 1rem 1rem rgba($black-color, 0.1);
-    
+  width: 100vw;
+  height: 5rem;
+  position: fixed;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  @include gradientBackground; /* created a gradient for this in mixins.scss */
+  box-shadow: 0 1rem 1rem rgba($black-color, 0.1);
 }
 
 .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  ul {
     display: flex;
-    justify-content: space-between;
+    gap: 3rem;
     align-items: center;
+  }
 
-    ul {
-        display: flex;
-        gap: 3rem;
-        align-items: center;
+  button {
+    display: none;
+  }
+
+  a {
+    color: $white-color;
+    font-weight: 400;
+    font-size: 0.8rem;
+  }
+
+  .nav__logo h3 {
+    color: $white-color;
+    font-size: 0.9.9rem;
+  }
+
+  /* Desktop/medium call button */
+  .btn {
+    display: flex; 
+    align-items: center;
+    gap: 0.3rem;
+    background: $secondary-color;
+    color: $white-color;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+
+    i {
+      font-size: 1.2rem; // phone icon size
     }
 
-    /* These buttons are only needed in medium and small screens */
-    button {
-        display: none;
+    &:hover {
+      background: darken($secondary-color, 10%);
     }
-
-    a {
-        color: $white-color;
-        font-weight: 400;
-        font-size: 0.8rem;
-    }
-    .nav__logo h3 {
-        color: $white-color;
-        font-size: 0.9.9rem;
-    }
+  }
 }
+
+/* Mobile-only floating call button (outside .container) */
+.call-btn.mobile-btn {
+  display: none;
+  position: fixed;
+  top: 1.3rem;
+  right: 4rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  background: $secondary-color;
+  color: $white-color;
+  border-radius: 0.4rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  text-decoration: none;
+  z-index: 9999;
+  box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,0.2);
+  transition: background 0.3s;
+
+  &:hover { background: darken($secondary-color, 10%); }
+}
+
 
 /*======================= MEDIA QUERIES (MEDIUM DECIVES) =================*/
 @media screen and (max-width: 1024px) {
@@ -199,83 +244,89 @@ nav {
 
 
 @media screen and (max-width: 600px) {
-  body{
+  body {
     overflow-x: hidden;
   }
-  nav {
-    .container {
-      ul {
-        position: fixed;
-        top: 5rem;              
-        left: 0;                 
-        width: 100%;  
-        max-width: 100%;          
-        height: 50vh;            
-        flex-direction: column;
-        align-items: stretch;
-        display: none;
-        padding: 0rem 0;              
-        margin: 0;
-        z-index: 999;
-        box-sizing: border-box;
 
-        &.open {
-          display: flex;
-        }
-        h3 {
-          margin: 0;
-          line-height: 1;
-        }
-        li {
-          width: 100%;
-          opacity: 0;
-          animation: flipNavItem 420ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          transform-origin: top;
-          transition: transform 200ms ease-out, background 200ms ease;
-          margin: 0;               // remove extra spacing
-          padding: 0;
+  /* Hide the nav button on mobile */
+  .btn {
+    display: none;
+  }
 
-          &:hover {
-            transform: rotateX(0) translateX(6px);
-          }
+  /* Show the floating mobile call button */
+  .call-btn.mobile-btn {
+    display: flex;
+  }
 
-          &:nth-child(2) { animation-delay: 120ms; }
-          &:nth-child(3) { animation-delay: 240ms; }
-          &:nth-child(4) { animation-delay: 360ms; }
-          &:nth-child(5) { animation-delay: 480ms; }
-          &:nth-child(6) { animation-delay: 600ms; }
-          &:nth-child(7) { animation-delay: 720ms; }
+  /* Mobile nav menu adjustments */
+  nav .container ul {
+    position: fixed;
+    top: 5rem;              
+    left: 0;                 
+    width: 100%;  
+    max-width: 100%;          
+    height: 50vh;            
+    flex-direction: column;
+    align-items: stretch;
+    display: none;
+    padding: 0;              
+    margin: 0;
+    z-index: 999;
+    box-sizing: border-box;
 
-          a {
-            display: block;
-            width: 100%;
-            padding: 0.8rem 0;       
-            color: $white-color;
-            text-align: center;    // center text
-            border-radius: 0;
-            transition: background 0.3s ease;
+    &.open {
+      display: flex;
+    }
 
-            &.btn {
-              background: $secondary-color;
-            }
-          }
-        }
+    li {
+      width: 100%;
+      opacity: 0;
+      animation: flipNavItem 420ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      transform-origin: top;
+      transition: transform 200ms ease-out, background 200ms ease;
+      margin: 0; 
+      padding: 0;
 
-        @keyframes flipNavItem {
-          0% {
-            transform: rotateX(90deg) translateY(-10px);
-            filter: blur(6px);
-          }
-          100% {
-            transform: rotateX(0deg) translateY(0);
-            opacity: 1;
-            filter: blur(0);
-          }
+      &:hover {
+        transform: rotateX(0) translateX(6px);
+      }
+
+      &:nth-child(2) { animation-delay: 120ms; }
+      &:nth-child(3) { animation-delay: 240ms; }
+      &:nth-child(4) { animation-delay: 360ms; }
+      &:nth-child(5) { animation-delay: 480ms; }
+      &:nth-child(6) { animation-delay: 600ms; }
+      &:nth-child(7) { animation-delay: 720ms; }
+
+      a {
+        display: block;
+        width: 100%;
+        padding: 0.8rem 0;       
+        color: $white-color;
+        text-align: center;
+        border-radius: 0;
+        transition: background 0.3s ease;
+
+        &.btn {
+          background: $secondary-color;
         }
       }
     }
   }
+
+  @keyframes flipNavItem {
+    0% {
+      transform: rotateX(90deg) translateY(-10px);
+      filter: blur(6px);
+    }
+    100% {
+      transform: rotateX(0deg) translateY(0);
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
 }
+
 header {
     height: auto;
     min-height: 500px;
