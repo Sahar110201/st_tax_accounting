@@ -112,7 +112,7 @@ nav {
     display: flex;
   }
   .call-btn.mobile-btn {
-    display: none !important;
+    display: none;
   }
     #open__nav-btn {
     display: inline-block;
@@ -177,6 +177,7 @@ nav {
                     a.btn {
                       display: none !important;
                     }
+
                     &:hover { transform: rotateX(0) translateX(6px);
             
                     }
@@ -286,7 +287,7 @@ nav {
   }
 
   .call-btn.tablet-btn {
-    display: none !important;
+    display: none;
   }
 
   /* Mobile nav menu adjustments */
