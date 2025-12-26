@@ -111,7 +111,9 @@ nav {
   .call-btn.tablet-btn {
     display: flex;
   }
-    
+  .call-btn.mobile-btn {
+    display: none !important;
+  }
     #open__nav-btn {
     display: inline-block;
   }
@@ -281,6 +283,10 @@ nav {
   /* Show the floating mobile call button */
   .call-btn.mobile-btn {
     display: flex;
+  }
+
+  .call-btn.tablet-btn {
+    display: none !important;
   }
 
   /* Mobile nav menu adjustments */
