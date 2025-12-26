@@ -29,7 +29,7 @@
       <li><a href="testimonial.html">TESTIMONIALS</a></li>
       <li><a href="tel:+16477607252" class="btn"><i class='bx  bx-phone'></i>CALL US</a></li>
     </ul>
-    <button id="open__nav-btn"><i class="bx bx-menu"></i></button>
+   <button id="open__nav-btn"><i class="bx bx-menu"></i></button>
     <button id="close__nav-btn"><i class="bx bx-x"></i></button>
   </div>
 </nav>
@@ -350,7 +350,7 @@
 
           <div class="form__group">
         <label for="appointment-time">Select Time</label>
-        <select id="appointment-time" name="appointment-time" required>
+        <select id="appointment-time" name="Appointment Time" required>
         <option value="" disabled selected>Select a time</option>
         <option value="11:00 AM">11:00 AM</option>
         <option value="11:30 AM">11:30 AM</option>
@@ -375,27 +375,30 @@
             <input type="email" placeholder="Email Address" name="Email" id="email" required>
           </div>
           
-          <div class="form__group">
-            <label for="appointment">Appointment Type</label>
-            <select name="Appointment Type" id="appointment" required>
-              <option value="In Person">In Person</option>
-              <option value="Virtual">Virtual</option>
-            </select>
-          </div>
+         <div class="form__group">
+        <label for="appointment">Appointment Type</label>
+        <select id="appointment" name="Appointment Type" required>
+        <option value="" disabled selected>Select appointment type</option>
+        <option value="In Person">In Person</option>
+        <option value="Virtual">Virtual</option>
+    </select>
+  </div>
 
           <div class="form__group">
-            <label for="services">Service</label>
-            <select name="Service" id="service" required>
-              <option value="Individual Tax Prep">Individual Tax Prep</option>
-              <option value="Business Tax Prep">Business Tax Prep</option>
-              <option value="Small Business Accounting">Small Business Accounting</option>
-              <option value="Bookkeeping">Bookkeeping</option>
-              <option value="Payroll Processing">Payroll Processing</option>
-              <option value="Financial Statement Finalization">Financial Statement Finalization</option>
-              <option value="Budgeting and Forecasting">Budgeting and Forecasting</option>
-              <option value="General Inquires">General Inquires</option>
-            </select>
-          </div>
+  <label for="service">Service</label>
+  <select id="service" name="Service" required>
+    <option value="" disabled selected>Select a service</option>
+    <option value="Individual Tax Prep">Individual Tax Prep</option>
+    <option value="Business Tax Prep">Business Tax Prep</option>
+    <option value="Small Business Accounting">Small Business Accounting</option>
+    <option value="Bookkeeping">Bookkeeping</option>
+    <option value="Payroll Processing">Payroll Processing</option>
+    <option value="Financial Statement Finalization">Financial Statement Finalization</option>
+    <option value="Budgeting and Forecasting">Budgeting and Forecasting</option>
+    <option value="General Inquires">General Inquires</option>
+  </select>
+</div>
+
           <div class="form__group">
             <label for="message">Additional Message</label>
             <textarea name="Added Message" id="message" rows="6" placeholder="Add a Message"></textarea>
