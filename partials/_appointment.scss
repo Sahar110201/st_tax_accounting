@@ -40,8 +40,9 @@
                     display: inline-block;
                     font-weight: 600;
 
-                    input, textarea, select {
-                        background: $white-color;
+                    input, 
+                    textarea, 
+                    select { background: $white-color;
                         padding: 0.85rem 1rem;
                         display: block;
                         width: 100%;
@@ -49,6 +50,20 @@
                         resize: none;
                         appearance: none;
                     }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    #appoitment {
+        .container {
+            grid-template-columns: 1fr;
+            gap:2rem;
+
+            .info {
+                h2, p {
+                    text-align: center;
                 }
             }
         }
