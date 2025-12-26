@@ -248,11 +248,6 @@ nav {
     overflow-x: hidden;
   }
 
-  /* Hide the nav button on mobile */
-  .btn {
-    display: none;
-  }
-
   /* Show the floating mobile call button */
   .call-btn.mobile-btn {
     display: flex;
@@ -289,6 +284,10 @@ nav {
 
       &:hover {
         transform: rotateX(0) translateX(6px);
+      }
+
+      a.btn {
+        display: none !important;
       }
 
       &:nth-child(2) { animation-delay: 120ms; }
