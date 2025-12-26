@@ -343,10 +343,13 @@
             <input type="tel" placeholder="Enter Phone Number" name="Phone Number" id="number" required>
           </div>
 
-          <div class="form__group">
-          <label for="date" class="placeholder">Select a date</label>
-          <input type="date" name="Date" id="date" required>
-          </div>
+         <div class="form__group">
+        <label for="date">Select Date</label>
+        <input type="date" id="date" name="Date" required>
+        <small id="date-error" style="color:red; display:none;">
+        Weekends and holidays are not available.
+      </small>
+    </div>
 
         <div class="form__group">
         <label for="appointment-time">Select Time</label>

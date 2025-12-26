@@ -126,3 +126,30 @@ function revealFeatures() {
 window.addEventListener('scroll', revealFeatures);
 window.addEventListener('load', revealFeatures);
 
+//Date blocked for Weekends and Holidays in Form.
+
+const dateInput = document.getElementById("date");
+const errorMsg = document.getElementById("date-error");
+
+// List of blocked holidays
+const holidays = [
+  "2025-12-25",
+  "2026-01-01",
+  "2026-07-01"
+];
+
+// Set minimum date (today)
+dateInput.min = new Date().toISOString().split("T")[0];
+
+dateInput.addEventListener("change", function () {
+  const selected = new Date(this.value);
+  const day = selected.getDay(); // 0 = Sunday, 6 = Saturday
+
+  if (day === 0 || day === 6 || holidays.includes(this.value)) {
+    this.value = "";
+    errorMsg.style.display = "block";
+  } else {
+    errorMsg.style.display = "none";
+  }
+});
+
