@@ -1,59 +1,91 @@
 #appointment {
-    .container{
-        display: grid;
-        grid-template-columns: 47% 47%;
-        gap: 6%;
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4%;
+    align-items: start;
+    overflow: auto;
 
-        .info {
-            p {
-                margin: 0.5rem 0 2rem
-            }
-            article {
-                display: flex;
-                gap: 1.5rem;
-                margin-bottom: 1.5rem;
+    .info {
+        max-height: 100vh;
+        overflow-y: auto;
+        justify-content: space-between;
+      p {
+        margin: 0.5rem 0 2rem;
+      }
 
-                small {
-                    margin-top: 0.4rem;
-                    display: block;
-                }
+      article {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
 
-                .info__icon {
-                    background: $secondary-color;
-                    color: $white-color;
-                    padding: 0.8rem;
-                    border-radius: 50%;
-                    display: flex;
-                    height: fit-content;
-                }
-            }
+        small {
+          margin-top: 0.4rem;
+          display: block;
         }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.4rem;
 
-            .form__group {
-                label {
-                    font-size: 0.85rem;
-                    margin-bottom: 0.4rem;
-                    display: inline-block;
-                    font-weight: 600;
-
-                    input, textarea, select { 
-                        background: $white-color;
-                        padding: 0.85rem 1rem;
-                        display: block;
-                        width: 100%;
-                        border-radius: 0.4rem;
-                        resize: none;
-                        appearance: none;
-                    }
-                }
-            }
+        .info__icon {
+          background: $secondary-color;
+          color: $white-color;
+          padding: 0.8rem;
+          border-radius: 50%;
+          display: flex;
+          height: fit-content;
         }
+      }
     }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      gap: 1.4rem;
+      padding-top: 1rem;
+      overflow-y: auto;
+      max-height: 100vh;
+      padding-right: 0.5rem;
+
+      .btn-primary {
+        margin-top: 1rem;
+      }
+
+      .form__group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+
+        label {
+          font-size: 0.95rem;
+          margin-bottom: 0.4rem;
+          display: inline-block;
+          font-weight: 600;
+        }
+
+        textarea {
+            min-height: 150px;
+            background: $white-color;
+          padding: 0.85rem 1rem;
+          display: block;
+          width: 100%;
+          border-radius: 0.4rem;
+          resize: none;
+          appearance: none;
+        }
+        input,
+        select {
+          background: $white-color;
+          padding: 0.85rem 1rem;
+          display: block;
+          width: 100%;
+          border-radius: 0.4rem;
+          resize: none;
+          appearance: none;
+        }
+      }
+    }
+  }
 }
+
 @media screen and (max-width: 1024px) {
     #appointment {
         .container {
@@ -63,6 +95,12 @@
             .info {
                 h2, p {
                     text-align: center;
+                }
+            }
+            form {
+                .btn-primary {
+                    align-self: center;
+                    width: 50%;
                 }
             }
         }
