@@ -81,9 +81,36 @@ nav {
   &:hover { background: darken($secondary-color, 10%); }
 }
 
+/* Tablet-only floating call button (outside .container) */
+.call-btn.tablet-btn {
+  display: none;
+  position: fixed;
+  top: 1.4rem;
+  right: 5rem;
+  width: 8rem;
+  height: 2.1rem;
+  background: $secondary-color;
+  color: $white-color;
+  border-radius: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  text-decoration: none;
+  z-index: 9999;
+  box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,0.2);
+  transition: background 0.3s;
+
+  &:hover { background: darken($secondary-color, 10%); }
+}
+
+
 
 /*======================= MEDIA QUERIES (MEDIUM DECIVES) =================*/
 @media screen and (max-width: 1024px) {
+
+  .call-btn.tablet-btn {
+    display: flex;
+  }
     
     #open__nav-btn {
     display: inline-block;
@@ -145,6 +172,9 @@ nav {
                       text-align: center;
                     }
                     
+                    a.btn {
+                      display: none !important;
+                    }
                     &:hover { transform: rotateX(0) translateX(6px);
             
                     }
