@@ -327,89 +327,85 @@
             </div>
           </article>
         </div>
-        <form action="https://formspree.io/f/mnjqngok" method="POST">
-          <div class="form__group">
-            <label for="name">Name</label>
-            <input type="text" placeholder="Enter Your Name" name="Client's Name" id="name" required>
-          </div>
+<form id="appointment-form" action="https://formspree.io/f/mnjqngok" method="POST" novalidate>
+  <div class="form__group">
+    <label for="name">Name</label>
+    <input type="text" placeholder="Enter Your Name" name="client_name" id="name" required>
+  </div>
 
-           <div class="form__group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" placeholder="Enter Phone Number" name="Phone Number" id="number" required>
-          </div>
+  <div class="form__group">
+    <label for="phone">Phone Number</label>
+    <input type="tel" placeholder="Enter Phone Number" name="phone" id="number" required>
+  </div>
 
-         <div class="form__group">
-          <label for="date">Date</label>
-          <input type="date" id="date" name="Date" required>
+  <div class="form__group">
+    <label for="date">Date</label>
+    <input type="date" id="date" name="appointment_date" required>
+    <small class="date-note">Note: Appointments are not available on weekends and statutory holidays.</small>
+    <small id="date-error" style="color:red; display:none;"></small>
+  </div>
 
-          <small class="date-note">
-            Note: Appointments are not available on weekends and statutory holidays.
-          </small>
-
-          <small id="date-error"    style="color:red; display:none;">
-            Selected date not available.
-          </small>
-      </div>
-
-
-        <div class="form__group">
-        <label for="appointment-time">Select Time</label>
-        <select id="appointment-time" name="Appointment Time" required>
-        <option value="" disabled selected>Select a time</option>
-        <option value="11:00 AM">11:00 AM</option>
-        <option value="11:30 AM">11:30 AM</option>
-        <option value="12:00 PM">12:00 PM</option>
-        <option value="12:30 PM">12:30 PM</option>
-        <option value="01:00 PM">01:00 PM</option>
-        <option value="01:30 PM">01:30 PM</option>
-        <option value="02:00 PM">02:00 PM</option>
-        <option value="02:30 PM">02:30 PM</option>
-        <option value="03:00 PM">03:00 PM</option>
-        <option value="03:30 PM">03:30 PM</option>
-        <option value="04:00 PM">04:00 PM</option>
-        <option value="04:30 PM">04:30 PM</option>
-        <option value="05:00 PM">05:00 PM</option>
-        <option value="05:30 PM">05:30 PM</option>
-        <option value="06:00 PM">06:00 PM</option>
-      </select>
-    </div>
-
-          <div class="form__group">
-            <label for="email">Email Address</label>
-            <input type="email" placeholder="Email Address" name="Email" id="email" required>
-          </div>
-          
-         <div class="form__group">
-        <label for="appointment">Appointment Type</label>
-        <select id="appointment" name="Appointment Type" required>
-        <option value="" disabled selected>Select appointment type</option>
-        <option value="In Person">In Person</option>
-        <option value="Virtual">Virtual</option>
+  <div class="form__group">
+    <label for="appointment-time">Select Time</label>
+    <select id="appointment-time" name="appointment_time" required>
+      <option value="" disabled selected>Select a time</option>
+      <option value="11:00 AM">11:00 AM</option>
+      <option value="11:30 AM">11:30 AM</option>
+      <option value="12:00 PM">12:00 PM</option>
+      <option value="12:30 PM">12:30 PM</option>
+      <option value="01:00 PM">01:00 PM</option>
+      <option value="01:30 PM">01:30 PM</option>
+      <option value="02:00 PM">02:00 PM</option>
+      <option value="02:30 PM">02:30 PM</option>
+      <option value="03:00 PM">03:00 PM</option>
+      <option value="03:30 PM">03:30 PM</option>
+      <option value="04:00 PM">04:00 PM</option>
+      <option value="04:30 PM">04:30 PM</option>
+      <option value="05:00 PM">05:00 PM</option>
+      <option value="05:30 PM">05:30 PM</option>
+      <option value="06:00 PM">06:00 PM</option>
     </select>
   </div>
 
-          <div class="form__group">
-  <label for="service">Service</label>
-  <select id="service" name="Service" required>
-    <option value="" disabled selected>Select a service</option>
-    <option value="Individual Tax Prep">Individual Tax Prep</option>
-    <option value="Business Tax Prep">Business Tax Prep</option>
-    <option value="Small Business Accounting">Small Business Accounting</option>
-    <option value="Bookkeeping">Bookkeeping</option>
-    <option value="Payroll Processing">Payroll Processing</option>
-    <option value="Financial Statement Finalization">Financial Statement Finalization</option>
-    <option value="Budgeting and Forecasting">Budgeting and Forecasting</option>
-    <option value="General Inquires">General Inquires</option>
-  </select>
-</div>
+  <div class="form__group">
+    <label for="email">Email Address</label>
+    <input type="email" placeholder="Email Address" name="email" id="email" required>
+  </div>
 
-          <div class="form__group">
-            <label for="message">Additional Message</label>
-            <textarea name="Added Message" id="message" rows="6" placeholder="Add a Message"></textarea>
-          </div>
+  <div class="form__group">
+    <label for="appointment">Appointment Type</label>
+    <select id="appointment" name="appointment_type" required>
+      <option value="" disabled selected>Select appointment type</option>
+      <option value="In Person">In Person</option>
+      <option value="Virtual">Virtual</option>
+    </select>
+  </div>
 
-          <input type="submit" value="Book Appointment" class="btn-primary">
-        </form>
+  <div class="form__group">
+    <label for="service">Service</label>
+    <select id="service" name="service" required>
+      <option value="" disabled selected>Select a service</option>
+      <option value="Individual Tax Prep">Individual Tax Prep</option>
+      <option value="Business Tax Prep">Business Tax Prep</option>
+      <option value="Small Business Accounting">Small Business Accounting</option>
+      <option value="Bookkeeping">Bookkeeping</option>
+      <option value="Payroll Processing">Payroll Processing</option>
+      <option value="Financial Statement Finalization">Financial Statement Finalization</option>
+      <option value="Budgeting and Forecasting">Budgeting and Forecasting</option>
+      <option value="General Inquires">General Inquires</option>
+    </select>
+  </div>
+
+  <div class="form__group">
+    <label for="message">Additional Message</label>
+    <textarea name="message" id="message" rows="6" placeholder="Add a Message"></textarea>
+  </div>
+
+  <input type="submit" value="Book Appointment" class="btn-primary">
+</form>
+
+<!-- MESSAGE DIV -->
+<div id="form-message"></div>
       </div>
     </section>
     <!--============================== END OF FORM ===============================-->

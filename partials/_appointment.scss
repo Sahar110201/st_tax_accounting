@@ -12,7 +12,6 @@
     grid-template-columns: 1fr 1fr;
     gap: 4%;
     align-items: start;
-    overflow: auto;
 
     .info {
         max-height: 100vh;
@@ -70,7 +69,8 @@
           padding: 0.85rem 1rem;
           display: block;
           width: 100%;
-          border-radius: 1rem solid rgba(0, 0, 0, 0.08);
+          border-radius: 1rem;
+          border: 1px solid rgba(0, 0, 0, 0.08);
           backdrop-filter: blur(6px);
           resize: none;
           appearance: none;
@@ -81,10 +81,33 @@
           margin-top: 0.3rem;
           font-size: 0.8rem;
           color: #060606;
+          padding-left: 0.5rem;
         }
-
       }
     }
+    /* Form message styling */
+#form-message {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+}
+
+/* Optional: different colors for success and error */
+#form-message.success {
+  color: green;
+}
+
+#form-message.error {
+  color: red;
+}
+
+/* Optional: fade-out effect after 5 seconds */
+#form-message.fade-out {
+  opacity: 0;
+}
+
   }
 }
 
