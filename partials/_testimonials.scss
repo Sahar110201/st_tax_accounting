@@ -4,7 +4,7 @@
 
 .swiper-wrapper {
     /*brings pagination down*/
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
     .swiper-slide {
             @include gradientBackground;
             padding: 1.5rem 2rem;
@@ -30,10 +30,10 @@
         }
 
         .swiper-outer-wrapper {
-  overflow: visible;
-  width: $container-lg;
-  margin: 0 auto;
-}
+            overflow: visible;
+            width: $container-lg;
+            margin: 0 auto;
+        }
 
     }
     .swiper-pagination-bullet {
