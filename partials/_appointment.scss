@@ -75,6 +75,14 @@
           resize: none;
           appearance: none;
         }
+
+        .date-note {
+          display: block;
+          margin-top: 0.3rem;
+          font-size: 0.8rem;
+          color: #060606;
+        }
+
       }
     }
   }
@@ -87,6 +95,9 @@
             gap:2rem;
 
             .info {
+              max-height: none !important;
+              overflow-y: visible !important;
+
                 h2, p {
                     text-align: center;
                 }

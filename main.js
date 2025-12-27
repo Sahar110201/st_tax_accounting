@@ -131,25 +131,38 @@ window.addEventListener('load', revealFeatures);
 const dateInput = document.getElementById("date");
 const errorMsg = document.getElementById("date-error");
 
-// List of blocked holidays
 const holidays = [
-  "2025-12-25",
-  "2026-01-01",
-  "2026-07-01"
+  "2026-01-01", // New Year's Day
+  "2026-02-16", // Family Day
+  "2026-04-03", // Good Friday
+  "2026-05-18", // Victoria Day
+  "2026-07-01", // Canada Day
+  "2026-08-03", // Civic Holiday
+  "2026-09-07", // Labour Day
+  "2026-10-12", // Thanksgiving
+  "2026-12-25",  // Christmas Day
+
+  // Islamic Holidays (Toronto estimate)
+  "2025-03-31", // Eid al-Fitr (expected)
+  "2025-06-07"  // Eid al-Adha (Eid al-Ahad)
 ];
 
-// Set minimum date (today)
 dateInput.min = new Date().toISOString().split("T")[0];
 
-dateInput.addEventListener("change", function () {
-  const selected = new Date(this.value);
-  const day = selected.getDay(); // 0 = Sunday, 6 = Saturday
+dateInput.addEventListener("change", () => {
+  const value = dateInput.value;
+  if (!value) return;
 
-  if (day === 0 || day === 6 || holidays.includes(this.value)) {
-    this.value = "";
+  const day = new Date(value + "T00:00:00").getDay();
+  const isWeekend = day === 0 || day === 6;
+  const isHoliday = holidays.includes(value);
+
+  if (isWeekend || isHoliday) {
+    dateInput.value = "";
     errorMsg.style.display = "block";
   } else {
     errorMsg.style.display = "none";
   }
 });
+
 
